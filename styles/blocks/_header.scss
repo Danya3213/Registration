@@ -1,0 +1,78 @@
+.header {
+    padding-top: 36px;
+
+    @include tablet {
+        padding-top: 24px;
+    }
+
+    // &__background-img{
+    // position: absolute;
+    // top: -100px;
+    // background: url(../../img/background-header.jpg);
+    // mix-blend-mode: darken;
+    // // height: 556px;
+
+    // @include tablet{
+    //     width: 100%;
+    //     height: 345px;
+    // }
+    // }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+
+        & .header--logo
+        {
+            margin-right: 55px;
+
+            @include desktop {
+                margin-right: 40px;
+            }
+            & .logo__image
+            {
+                width: 158px;
+            }   
+        }
+
+        & .header__menu {
+
+            &-list {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                @include desktop {
+                    gap: 15px;
+                }
+            }
+            &-link
+            {
+                display: inline-flex;
+                align-items: center;
+                height: 30px;
+                position: relative;
+
+                @include hover {
+                    &::after
+                    {
+                        width: 100%;
+                    }
+                }
+
+                &::after
+                {
+                    content: '';
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    translate: -50%;
+                    height: 2px;
+                    width: 0;
+                    background-color: currentColor;
+                    transition-duration: inherit;
+                }
+            }
+        }
+    }
+}

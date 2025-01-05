@@ -1,0 +1,25 @@
+:root{
+    --color-brown: #3C322D;
+    --color-brown-alt: #2E2520;
+    --color-dark: #000000;
+    --color-pink: #F3848C;
+    --color-pink-alt: #E8B7B745;
+    --color-white: #F6F7F7;
+
+    --border: 1px solid var(--color-pink);
+    --border-radius: 25px;
+
+    --shadow: 10px 15px 25px 0 var(--color-pink-alt);
+
+    --font-family-base: 'Montserrat', sans-serif;
+
+    --container-width: 1248px;
+    --container-padding-x: 20px;
+
+    --section-padding-y: 50px;
+
+    --input-height: 22px;
+    --button-height: 40px;
+
+    --transition-duration: 0.2s;
+}

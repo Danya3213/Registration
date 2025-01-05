@@ -1,0 +1,26 @@
+// @use
+@import 
+    'normalize', 
+    'fonts', 
+    'mixins',   
+    'media', 
+    'media', 
+    'variables', 
+    'utils', 
+    'globals';
+
+@import
+    'blocks/title',
+    'blocks/button',
+    'blocks/burger-button',
+    'blocks/header',
+    'blocks/cross-button',
+    'blocks/tablet-orerlay',
+    'blocks/head.scss',
+    'blocks/icons',
+    'blocks/about',
+    'blocks/program',
+    'blocks/speakers',
+    'blocks/price',
+    'blocks/input',
+    'blocks/registration'

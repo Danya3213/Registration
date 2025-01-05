@@ -1,0 +1,8 @@
+.icons-list {
+    @include flex-center(true);
+    gap: 16px;
+
+    @include mobile{
+        @include flex-center;
+    }
+}
