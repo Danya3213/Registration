@@ -1,5 +1,9 @@
 .speakers {
-    padding: 50px 0 ;
+    padding: 50px 0;
+
+    @include mobile {
+        padding: 17px 0 11px;
+    }
 
     &__inner {
         display: flex;
@@ -24,48 +28,86 @@
         @include tablet {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            grid-row-gap: 40px;
+            grid-row-gap: 20px;
+            grid-column-gap: 0px;
         }
     }
 
     &__list-item {
-        max-width: 288px;
-        max-height: 407px;
         display: flex;
         flex-direction: column;
         text-align: center;
         align-items: center;
-        gap: 20px;
 
-        &::before {
-            content: '';
-            display: block;
-            width: 288px;
-            height: 288px;
-            border-radius: 50%;
-            background-color: var(--color-pink);
-            opacity: 29%;
-            position: relative;
-            top: -20px;
-
-            @include desktop {
-                width: 169px;
-                height: 169px;
-            }
-
-            @include tablet {
-                width: 130px;
-                height: 130px;
-            }
-        }
         @include mobile {
             gap: 12px;
+        }
+    }
+
+    $border: 300px;
+
+    &__list-item-top {
+        position: relative;
+        background-repeat: no-repeat;
+        width: 288px;
+        height: 310px;
+        background-position: 50%;
+        background-size: cover;
+        padding-top: 17px;
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 288px;
+            height: 288px;
+        }
+
+        &::before {  
+            background-color: var(--color-pink);
+            z-index: -1;
+            opacity: 29%;
+            border-radius: var(--border-circle);
+        }
+
+        &::after {
+            box-sizing: content-box;
+            border-radius: 0 0 50% 50%;
+            border-bottom: #eeeced calc($border - 288px) solid;
+            left: calc(($border - 288px) / (-2));
+            width: $border;
+            height: $border;
+        }
+
+        .list-item:nth-of-type(1) & {
+            background-image: url(../../img/speakers/person1.png);
+            
+        }
+
+        .list-item:nth-of-type(2) & {
+            background-image: url(../../img/speakers/person2.png);
+        }
+
+        .list-item:nth-of-type(3) & {
+            background-image: url(../../img/speakers/person3.png);
+        }
+
+        .list-item:nth-of-type(4) & {
+            background-image: url(../../img/speakers/person4.png);
+            
         }
     }
 
     &__name {
         font-weight: 600;
         font-size: 18px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+
+        @include tablet {
+            margin-bottom: 12px;
+        }
     }
 
     &__paragraph {
@@ -74,8 +116,9 @@
         font-size: 16px;
         max-width: 185px;
         display: flex;
+        z-index: 1;
 
-        @include tablet {
+        @include desktop {
             font-size: 14px;
             line-height: 17px;
         }

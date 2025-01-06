@@ -1,11 +1,15 @@
 .registration {
-    padding: 50px 0;
+    padding: 50px 0 63px;
 
+    @include mobile {
+        padding: 20px 0;
+    }
 
     &__inner {
         display: flex;
         flex-direction: column;
         align-items: center;
+        align-content: center;
         text-align: center;
         gap: 28px;
     }
@@ -24,19 +28,55 @@
         justify-content: center;
         grid-template-rows: 166px;
 
-        &::after {
+        @include desktop {
+            width: 704px;
+            height: 246px;
+            grid-template-columns: 98px 293px 145px;
+        }
+
+        @include tablet {
+            width: 100%;
+            height: 394px;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 8px 32px;
+
+        }
+
+        &::after, &::before {
             content: '';
             position: absolute;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            height: 100%;
+            width: 453px;
+            display: block;
+
+            @include tablet {
+                width: 100%;
+                height: 394px;
+                background-size: cover;
+            }
+        }
+
+        &::after {
             background-image: url(../../img/registration-background.jpg);
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            display: block;
-            height: 100%;
-            width: 453px;
             z-index: -2;
-            right: -62px;
-            top: 0;
-            border-radius: var(--border-radius);
+        }
+
+        &::before {
+            background-color: var(--color-brown);
+            opacity: 30%;
+            z-index: -1;
+
+            @include tablet {
+                opacity: 60%;
+            }
         }
     }
 
@@ -44,7 +84,13 @@
         position: absolute;
         bottom: 16px;
         left: 15px; 
-        
+
+        @include desktop {
+            width: 100px;
+            height: 67px;
+            bottom: 20px;
+            left: 75px;
+        }
     }
 
     &__svg {
@@ -60,6 +106,25 @@
         font-size: 20px;
         font-weight: 500;
         text-align: right;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            background-color: transparent;
+
+            @include tablet {
+                background-color: #FFFFFF;
+            }
+        }
+
+        @include tablet {
+            text-align: center;
+        }
     }
 
     &__form {
@@ -69,18 +134,56 @@
         margin-left: 28px;
         border-left: 1px solid var(--color-brown-alt);
         gap: 14px;
+
+        @include tablet {
+            border-left: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
     }
 
     &__form-title {
         font-size: 20px;
         font-weight: 500;
-        // max-width: 270px;
         text-align: left;
         margin-bottom: 10px;
+
+        @include desktop {
+            font-size: 16px;
+        }
+
+        @include tablet {
+            margin-top: 40px;
+            text-align: center;
+        }
+    }
+
+    &__form-input {
+
+        @include tablet {
+            width: 100%;
+            border-bottom: #FFFFFF 1px solid;
+        }
+
+        &::placeholder{
+            @include tablet {
+                color: #FFFFFF;
+            }
+        }
     }
 
     &__button {
         margin-top: 63px;
-        margin-left: 15px;
+        position: relative;
+        right: -15px;
+
+        @include desktop {
+            right: -74px;
+        }
+
+        @include tablet {
+            margin-top: 32px;
+            right: 0;
+        }
     }
 }

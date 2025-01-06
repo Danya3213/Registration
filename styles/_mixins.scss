@@ -29,6 +29,11 @@
     align-items: center;
 }
 
+@mixin circle {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 @mixin abs-center {
     position: absolute;
     top: 50%;

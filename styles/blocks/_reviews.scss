@@ -1,0 +1,113 @@
+.reviews {
+    padding: 50px 0;
+
+    @include tablet {
+        padding: 40px 0;
+    }
+
+    @include mobile {
+        padding: 10px 0 20px;
+    }
+
+    &__inner {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 27px;
+
+        @include tablet {
+            gap: 22px;
+        }
+    }
+
+    &__main-title {
+        text-align: center;
+        margin-bottom: 170px;
+        font-size: 32px;
+
+        @include desktop {
+            margin-bottom: 103px;
+        }
+
+        @include tablet {
+            margin-bottom: 27px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 32px;
+        justify-items: center;
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__list-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+
+        &:nth-of-type(2n+1) {
+            position: relative;
+            top: -170px;
+
+            @include desktop {
+                height: 208px;
+                width: 151px;
+            }
+
+            @include tablet {
+                margin-bottom: 5px;
+            }
+        }
+
+        &:nth-of-type(2) {
+            @include desktop {
+                height: 393px;
+                width: 336px;
+            }
+
+            @include mobile {
+                width: 280px;
+                height: 337px;
+            }
+        }
+    }
+
+    &__star-list {
+        display: flex;
+        gap: 4px;
+    }
+
+    &__list-title {
+        font-weight: 500;
+    }
+
+    &__nav {
+        position: relative;
+
+        &::before, &::after {
+            content: '';
+            display: block;
+            width: 35px;
+            height: 2px;
+            background-color: var(--color-pink);
+            position: absolute;
+            top: 45%;
+        }
+
+        &::before {
+            left: -45px;
+        }
+
+        &::after {
+            right: -45px;
+        }
+    }
+}

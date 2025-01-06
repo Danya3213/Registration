@@ -7,6 +7,8 @@
     background-color: var(--color-pink);
     border: 0;
     border-radius: var(--border-radius);
+    min-width: 145px;
+
 
     @include hover {
         background: var(--color-brown);

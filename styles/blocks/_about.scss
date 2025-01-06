@@ -1,5 +1,9 @@
 .about {
-    padding: 64px 0 50px;
+    padding: 32px 0 50px;
+
+    @include mobile {
+        padding: 10px 0;
+    }
 
     &__img-container {
         border-radius: var(--border-radius);
