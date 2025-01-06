@@ -13,7 +13,7 @@
 
     &__main-title {
         font-weight: 500;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     &__list {
@@ -23,11 +23,11 @@
 
         @include desktop {
             grid-column-gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
         }
 
         @include tablet {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
             grid-row-gap: 20px;
             grid-column-gap: 0px;
         }
@@ -44,57 +44,58 @@
         }
     }
 
-    $border: 300px;
-
     &__list-item-top {
         position: relative;
-        background-repeat: no-repeat;
+        overflow: hidden;
+        border-radius: var(--border-circle);
         width: 288px;
         height: 310px;
-        background-position: 50%;
-        background-size: cover;
-        padding-top: 17px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
 
-        &::before, &::after {
+        @include tablet {
+            width: 130px;
+            height: 160px;
+        }
+
+        &::before{
             content: '';
-            position: absolute;
-            left: 0;
+            display: block;
             width: 288px;
             height: 288px;
-        }
-
-        &::before {  
             background-color: var(--color-pink);
-            z-index: -1;
             opacity: 29%;
             border-radius: var(--border-circle);
+
+            @include tablet {
+                width: 130px;
+                height: 130px;
+            }
         }
 
-        &::after {
-            box-sizing: content-box;
-            border-radius: 0 0 50% 50%;
-            border-bottom: #eeeced calc($border - 288px) solid;
-            left: calc(($border - 288px) / (-2));
-            width: $border;
-            height: $border;
-        }
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            max-width: unset;
 
-        .list-item:nth-of-type(1) & {
-            background-image: url(../../img/speakers/person1.png);
-            
+            @include tablet {
+                width: 227px;
+            }
         }
-
-        .list-item:nth-of-type(2) & {
-            background-image: url(../../img/speakers/person2.png);
-        }
-
-        .list-item:nth-of-type(3) & {
-            background-image: url(../../img/speakers/person3.png);
-        }
-
-        .list-item:nth-of-type(4) & {
-            background-image: url(../../img/speakers/person4.png);
-            
+    }
+    .list-item:nth-child(3), .list-item:nth-child(4) {
+        .speakers__list-item-top {
+            img {
+                width: 475px;
+                
+                @include tablet {
+                    width: 215px;
+                }
+            }
         }
     }
 
